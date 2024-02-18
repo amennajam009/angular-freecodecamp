@@ -39,7 +39,7 @@
     </thead>
     <tbody>
         <!-- ngFor is actually for of loop by which we get our data  -->
-      <tr *ngFor="let data of roomsDetails">
+      <tr *ngFor="let data of roomsDetails | slice: 0:3">
         <td scope="row">{{data.roomType}}</td>
         <td>{{data.price | currency :'USD'}}</td>
         <td>{{data.description | uppercase}}</td>
@@ -68,6 +68,9 @@
     <li>PercentPipe</li>
     <!-- json pipe is used only for debugging purpose if i want to see the data of object or array which is coming [object , object] -->
     <li>JsonPipe</li>
+    <!-- slice actually used same as it's function like it takes 2 parameters one is starting index and other is end index and it actually show -->
+    <!-- the exact data of given index -->
     <li>SlicePipe</li>
+    <!--  -->
     <li>AsyncPipe</li>
   </ol>
