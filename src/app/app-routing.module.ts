@@ -4,7 +4,10 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path:'' ,component:HomeComponent},
-  {path:'home' , component:HomeComponent}
+  {path:'home' , component:HomeComponent},
+  {path: 'home-module',
+   loadChildren: () => import('../app/home/home.module').then(m => m.HomeModule) 
+  }
 ];
 
 @NgModule({
