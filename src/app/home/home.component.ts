@@ -18,6 +18,8 @@ export class HomeComponent {
   //property binding
   myClassProperty = false  
   toggleProperty = false
+  hotleName = 'dummy'
+  myvar :string = ''
   //event binding
 
   //interface
@@ -57,7 +59,9 @@ roomsDetails:RoomsDetails [] = [{
 
   }
 
-
+showStringValue(){
+  this.myvar = this.hotleName
+}
   toggle(){
      this.toggleProperty = !this.toggleProperty
      
