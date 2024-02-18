@@ -1,0 +1,73 @@
+<!-- Interpollution -->
+<h1>{{course}}</h1>
+
+<!-- property binding -->
+<div [hidden]="toggleProperty">
+<div [innerText]="courseReview"></div>
+</div>
+<!-- property binding -->
+<img [src]="imageUrl">
+<!-- property binding -->
+<h1 [ngClass]="{'classColor' : myClassProperty ? true : 'otherClass' }"> I'm Example of ngClass with diff syntax</h1>
+<h1 [ngClass]="myClassProperty === true? 'classColor' : 'otherClass'">I'm Example of ngClass</h1>
+<!-- event binding -->
+
+<!-- ngStyle -->
+<!-- icmay difference yeh hota hai k yeh inline styling deta hai -->
+<h1 [ngStyle]="myClassProperty === true? {color:'red'} : {color:'purple'}">I'm Example of ngStyle</h1>
+
+<button (click)="toggle()">click me</button>
+
+<!-- ngIf -->
+<!-- ngif hum icliye use krty han kyu k yeh dom may nai retha hai but hidden humra dom may show hota retha hai -->
+<p *ngIf="rooms.bookedRooms > 0">I'm Example of ngIf</p>
+
+<!-- yeh edhr m ny hidden property use ke hai jis sy hoga yeh k yeh icko hide toh krdyga but icko dom may show krta rhyga -->
+<p [attr.hidden]="rooms.availableRooms > 0 ? false : null">hello world</p>
+<!-- json pipe only used for debugging purpose -->
+{{roomsDetails | json}}
+<!-- use of for loop -->
+<table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">roomType</th>
+        <th scope="col">price</th>
+        <th scope="col">description</th>
+        <th scope="col">checkin_Time</th>
+        <th scope="col">checkout_Time</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- ngFor is actually for of loop by which we get our data  -->
+      <tr *ngFor="let data of roomsDetails">
+        <td scope="row">{{data.roomType}}</td>
+        <td>{{data.price | currency :'USD'}}</td>
+        <td>{{data.description | uppercase}}</td>
+        <td>{{data.checkin_Time | date : 'dd/MM/yyyy'}}</td>
+        <td>{{data.checkout_Time| date : 'dd/MM/yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PIPES -->
+  <h1>PIPES</h1>
+  <ol>
+    <!-- date pipe is used to transform the format of date -->
+    <li>DatePipe</li>
+    <!-- change the data into upper-case -->
+    <li>UpperCasePipe</li>
+    <!-- change the data into lower case -->
+    <li>LowerCasePipe</li>
+    <!-- in title case only first letter will be capital -->
+    <li>titleCasePipe</li>
+    <!-- Currency Pipe is used to convert number into currency format -->
+    <li>CurrencyPipe</li>
+    <!-- decimal pipe is used to show us the value into decimal -->
+    <li>DeciamlPipe</li>
+    <!-- it is used to show the percentage -->
+    <li>PercentPipe</li>
+    <!-- json pipe is used only for debugging purpose if i want to see the data of object or array which is coming [object , object] -->
+    <li>JsonPipe</li>
+    <li>SlicePipe</li>
+    <li>AsyncPipe</li>
+  </ol>
