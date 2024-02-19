@@ -9,20 +9,27 @@ import { HeaderComponent } from './header/header.component';
 import { Module2Module } from './eager-load/module-2/module-2.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from './table/table.component';
+import { ParentComponentComponent } from './parent-component/parent-component.component';
+import { ChildComponentComponent } from './child-component/child-component.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    TableComponent
+    TableComponent,
+    ParentComponentComponent,
+    ChildComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     Module1Module,
     Module2Module,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

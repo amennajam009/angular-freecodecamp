@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         <!-- ngFor is actually for of loop by which we get our data  -->
-      <tr *ngFor="let data of roomsData | slice: 0:3">
+      <tr *ngFor="let data of roomsData">
         <td scope="row">{{data.roomType}}</td>
         <td>{{data.price | currency :'USD'}}</td>
         <td>{{data.description | uppercase}}</td>

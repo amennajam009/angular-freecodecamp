@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Rooms, RoomsDetails } from '../rooms';
 import { findIndex } from 'rxjs';
 
@@ -21,6 +21,7 @@ export class HomeComponent {
   toggleProperty = false
   hotleName = 'dummy'
   myvar :string = ''
+  @Output() sendFunction = new EventEmitter<string>()
   //event binding
 
   //interface
@@ -53,20 +54,39 @@ roomsDetails:RoomsDetails [] = [{
 }
 ]
   constructor(){
-
+  this.sendFunction.emit('experimentFunction')
   }
 
   ngOnInIt(){
 
   }
+
+  addRooms(){
+    const room:RoomsDetails={
+      roomType:'dummy data4',
+      price: 345689,
+      description:'dummy description4',
+      checkin_Time: new Date ('11/17/20204'),
+      checkout_Time: new Date ('11/17/20204')
+    }
+    this.roomsDetails = [...this.roomsDetails,room]
+  }
+
+
   selectRoom(data:RoomsDetails){
     console.log('data',data)
   }
 showStringValue(){
   this.myvar = this.hotleName
 }
-  toggle(){
-     this.toggleProperty = !this.toggleProperty
-     
+
+toggle(){
+     this.toggleProperty = !this.toggleProperty  
   }
+
+  experimentFunction(){
+    const value = 'Hello World!'
+    console.log(value)
+  }
+
 }
