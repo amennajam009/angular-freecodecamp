@@ -1,0 +1,25 @@
+<table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">roomType</th>
+        <th scope="col">price</th>
+        <th scope="col">description</th>
+        <th scope="col">checkin_Time</th>
+        <th scope="col">checkout_Time</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- ngFor is actually for of loop by which we get our data  -->
+      <tr *ngFor="let data of roomsData | slice: 0:3">
+        <td scope="row">{{data.roomType}}</td>
+        <td>{{data.price | currency :'USD'}}</td>
+        <td>{{data.description | uppercase}}</td>
+        <td>{{data.checkin_Time | date : 'dd/MM/yyyy'}}</td>
+        <td>{{data.checkout_Time| date : 'dd/MM/yyyy'}}</td>
+        <td>
+            <button (click)="onselectRoom(data)">select</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

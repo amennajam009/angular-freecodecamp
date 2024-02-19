@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Rooms, RoomsDetails } from '../rooms';
+import { findIndex } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -58,7 +59,9 @@ roomsDetails:RoomsDetails [] = [{
   ngOnInIt(){
 
   }
-
+  selectRoom(data:RoomsDetails){
+    console.log('data',data)
+  }
 showStringValue(){
   this.myvar = this.hotleName
 }

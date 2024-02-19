@@ -27,28 +27,7 @@
 <!-- json pipe only used for debugging purpose -->
 {{roomsDetails | json}}
 <!-- use of for loop -->
-<table class="table mt-5">
-    <thead>
-      <tr>
-        <th scope="col">roomType</th>
-        <th scope="col">price</th>
-        <th scope="col">description</th>
-        <th scope="col">checkin_Time</th>
-        <th scope="col">checkout_Time</th>
-      </tr>
-    </thead>
-    <tbody>
-        <!-- ngFor is actually for of loop by which we get our data  -->
-      <tr *ngFor="let data of roomsDetails | slice: 0:3">
-        <td scope="row">{{data.roomType}}</td>
-        <td>{{data.price | currency :'USD'}}</td>
-        <td>{{data.description | uppercase}}</td>
-        <td>{{data.checkin_Time | date : 'dd/MM/yyyy'}}</td>
-        <td>{{data.checkout_Time| date : 'dd/MM/yyyy'}}</td>
-      </tr>
-    </tbody>
-  </table>
-
+<app-table [roomsData]="roomsDetails" (onselect)="selectRoom($event)"></app-table>
   <!-- PIPES -->
   <h1>PIPES</h1>
   <ol>
