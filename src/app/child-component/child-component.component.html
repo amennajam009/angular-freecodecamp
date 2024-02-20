@@ -2,14 +2,69 @@
     <div>
         <h1 class="text-center mt-5">Child Component</h1>
         <div class="input-group mb-3">
-          <h2>First Name: </h2>   
+          <h4>First Name: {{dataToPass.first_name}} </h4>   
           </div>
           <div class="input-group mb-3">
-            <h2>Last Name: </h2>   
+            <h4>Last Name: {{dataToPass.last_name}}</h4>   
           </div>
           <div class="input-group mb-3">
-            <h2>Education: </h2>   
+            <h4>Education: {{dataToPass.education}}</h4>   
           </div>
-         <!-- <div class="btn btn-success w-100">submit</div> -->
     </div>
 </div>
+
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Education</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let data of dataToStore">
+      <td scope="row">{{data.first_name}}</td>
+      <td>{{data.last_name}}</td>
+      <td>{{data.education}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1 class="text-center mt-5">Send Title To Parent</h1>
+<form [formGroup]="sendDataForm" (ngSubmit)="Submit()">
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="First Name" aria-label="Recipient's username"  formControlName="first_name" aria-describedby="basic-addon2">   
+</div>
+<button type="submit"  class="btn btn-success w-100">Send Data To Parent</button>
+</form>
+
+
+
+
+<!-- <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">roomType</th>
+      <th scope="col">price</th>
+      <th scope="col">description</th>
+      <th scope="col">checkin_Time</th>
+      <th scope="col">checkout_Time</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let data of roomsData">
+      <td scope="row">{{data.roomType}}</td>
+      <td>{{data.price | currency :'USD'}}</td>
+      <td>{{data.description | uppercase}}</td>
+      <td>{{data.checkin_Time | date : 'dd/MM/yyyy'}}</td>
+      <td>{{data.checkout_Time| date : 'dd/MM/yyyy'}}</td>
+      <td>
+          <button (click)="onselectRoom(data)">select</button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->

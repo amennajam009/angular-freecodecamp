@@ -1,20 +1,47 @@
 <div class="col">
     <div>
         <form [formGroup]="myForm" (ngSubmit)="SubmitForm()">
-        <h1 class="text-center mt-5">Parent Component</h1>
+        <h1 class="text-center mt-5">{{parentData.first_name ? parentData.first_name : 'Parent-Component'}}</h1>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="First Name" aria-label="Recipient's username" aria-describedby="basic-addon2">   
+            <input type="text" class="form-control" placeholder="First Name" aria-label="Recipient's username"  formControlName="first_name" aria-describedby="basic-addon2">   
           </div>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Last Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" placeholder="Last Name" aria-label="Recipient's username"  formControlName="last_name" aria-describedby="basic-addon2">
           </div>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Education" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" placeholder="Education" aria-label="Recipient's username"  formControlName="education" aria-describedby="basic-addon2">
           </div>
-         <div class="btn btn-success w-100">submit</div>
+         <button class="btn btn-success w-100" type="submit">Send Data To Child </button>
         </form>
     </div>
 </div>
 
-<app-child-component></app-child-component>
+<!-- child component -->
+<app-child-component 
+[dataToPass]="storeDataInToArray"
+(sendData)="dataToget($event)">
+</app-child-component>
 
+
+
+<!-- View Child -->
+<h1 class="text-center mt-5">View Child </h1>
+<div class="row mt-5">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Parent Component</h5>
+        <p class="card-text">Welcome to Parent Component:<b>{{title}}</b></p>
+        <button class="btn btn-success" (click)="clickMe()">Click Me</button>
+        <button (click)="exp()">kkkkk</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-6">
+    <app-child-component2></app-child-component2>
+  </div>
+</div>
+
+
+<app-home></app-home>

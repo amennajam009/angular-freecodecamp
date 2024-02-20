@@ -12,6 +12,7 @@ import { TableComponent } from './table/table.component';
 import { ParentComponentComponent } from './parent-component/parent-component.component';
 import { ChildComponentComponent } from './child-component/child-component.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChildComponent2Component } from './child-component2/child-component2.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     TableComponent,
     ParentComponentComponent,
-    ChildComponentComponent
+    ChildComponentComponent,
+    ChildComponent2Component
   ],
   imports: [
     BrowserModule,

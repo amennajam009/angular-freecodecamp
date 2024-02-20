@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { Rooms, RoomsDetails } from '../rooms';
 import { findIndex } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { findIndex } from 'rxjs';
 export class HomeComponent {
   //Interpollution means to bind data which means the connection from ts to html file
   course = 'Angular-freecodecamp';
-
+  @Input() dataToPass:any
   //property binding
   courseReview = 'Amazing course of the Year';
   //property binding
@@ -22,6 +22,7 @@ export class HomeComponent {
   hotleName = 'dummy'
   myvar :string = ''
   @Output() sendFunction = new EventEmitter<string>()
+  
   //event binding
 
   //interface
@@ -57,10 +58,12 @@ roomsDetails:RoomsDetails [] = [{
   this.sendFunction.emit('experimentFunction')
   }
 
-  ngOnInIt(){
-
+  ngOnInit(): void {
+    setTimeout(()=>{
+      this.dataToPass
+    },5000)
+    console.log(this.dataToPass)
   }
-
   addRooms(){
     const room:RoomsDetails={
       roomType:'dummy data4',
