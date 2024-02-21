@@ -1,4 +1,4 @@
-import { Component, ViewChild ,OnInit, OnChanges, SimpleChanges, ViewContainerRef} from '@angular/core';
+import { Component, ViewChild ,OnInit, OnChanges, SimpleChanges, ViewContainerRef, ViewChildren, QueryList} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChildComponent2Component } from '../child-component2/child-component2.component';
 import { GetDynamicCompComponent } from '../get-dynamic-comp/get-dynamic-comp.component';
@@ -15,14 +15,20 @@ export class ParentComponentComponent implements OnInit{
   parentData: any  = {}
   title : string = 'Hello World Parent'
   po='hi'
+  display=true
   //Only Access The Child Component
   //static : true means k agr toh mery child component may koi asyn operation nia perform horha toh yeh usko uss hi time py inatilze krdet hai jb parent ko krta hai
 @ViewChild(ChildComponent2Component , {static:true}) ChildComponent!:ChildComponent2Component;
+// To Get Dynamic component by using template refrence 
 @ViewChild('user' , {read:ViewContainerRef , static:true}) user!:ViewContainerRef
+//now i want to access multiple 
+@ViewChildren(ChildComponent2Component) childComponent!:QueryList<ChildComponent2Component>
   myValue: any;
 
 ngAfterViewInit(): void {
  console.log(this.ChildComponent.child_title) 
+ console.log(this.childComponent)
+  
 }
 
 
@@ -32,7 +38,7 @@ ngAfterViewInit(): void {
   }
   ngOnInit(){
     // console.log(this.ChildComponent.child_title);
-    const getComponent = this.user.createComponent(GetDynamicCompComponent)
+    // const getComponent = this.user.createComponent(GetDynamicCompComponent)
     console.log('&&&&&&&&&&&&&')
   }
 

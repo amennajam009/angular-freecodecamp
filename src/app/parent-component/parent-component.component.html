@@ -43,8 +43,13 @@
   </div>
 </div>
 
+<ng-template [ngIf]="display">
+  <h1>Hello There We Are Testing ng-template</h1>
+</ng-template>
 
 <!-- With the use of template refrence you can even get the dynamic component as well -->
-<ng-template #user>
+<!-- <ng-template #user>
   
-</ng-template>
+</ng-template> -->
+
+<app-get-dynamic-comp></app-get-dynamic-comp>
