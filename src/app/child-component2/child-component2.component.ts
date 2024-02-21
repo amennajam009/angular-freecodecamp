@@ -8,21 +8,23 @@ import { ParentComponentComponent } from '../parent-component/parent-component.c
 })
 export class ChildComponent2Component{
 prop='hello'
-@ViewChild(ParentComponentComponent , {static:true}) parent!:ParentComponentComponent;
-ngAfterViewInit(): void {
-    console.log(this.parent.po)
-}
+child_title:string = 'Child Component Working'
+
 ngOnInIt(){
-  console.log(this.parent.po)
+  // console.log(this.parent.po)
 }
 constructor(){
 
 }
 
 
-changeTheTitle(){
-  alert('kkkkkkkkkkkk')
+RunChildAlert(){
+  alert('Child Component Alert')
 }
+
+// changeTheTitle(){
+//   alert('kkkkkkkkkkkk')
+// }
 
 
 

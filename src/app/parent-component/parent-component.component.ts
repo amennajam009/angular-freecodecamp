@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild ,OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChildComponent2Component } from '../child-component2/child-component2.component';
 import { HomeComponent } from '../home/home.component';
@@ -8,7 +8,7 @@ import { HomeComponent } from '../home/home.component';
   templateUrl: './parent-component.component.html',
   styleUrls: ['./parent-component.component.scss']
 })
-export class ParentComponentComponent {
+export class ParentComponentComponent implements OnInit{
   myForm:FormGroup | any;
   storeDataInToArray: any = {}
   ArrayOfDataGetFromParent:any = []
@@ -16,23 +16,30 @@ export class ParentComponentComponent {
   title : string = 'Hello World Parent'
   po='hi'
   //Only Access The Child Component
-@ViewChild(ChildComponent2Component , {static:true}) parent!:ChildComponent2Component;
-@ViewChild(HomeComponent , {static:true}) HomeComp!:HomeComponent;
+  //static : true means k agr toh mery child component may koi asyn operation nia perform horha toh yeh usko uss hi time py inatilze krdet hai jb parent ko krta hai
+@ViewChild(ChildComponent2Component , {static:true}) ChildComponent!:ChildComponent2Component;
+  myValue: any;
 
 ngAfterViewInit(): void {
-    console.log(this.parent.prop)
-    console.log(this.HomeComp.hotleName)
+ console.log(this.ChildComponent.child_title) 
 }
-ngOnInIt(){
-  console.log(this.parent.prop)
-}
+
+
+
   constructor(private readonly formBuilder:FormBuilder){
     this.myFormModel()
   }
+  ngOnInit(){
+    // console.log(this.ChildComponent.child_title);
+    console.log('&&&&&&&&&&&&&')
+  }
+
 
   // ngDoCheck(){
   //   console.log('do change workss')
   // }
+
+ 
 
   myFormModel(){
     this.myForm = this.formBuilder.group({
@@ -49,14 +56,18 @@ ngOnInIt(){
     this.myForm.reset()
   }
 
-  exp(){
-    this.parent.changeTheTitle()
-  }
+  
  
 
   clickMe(){
-    alert('hello world')
+    this.ChildComponent.child_title = 'Parent manipulate it'
   }
+
+  RunAlertFromChild(){
+  this.ChildComponent.RunChildAlert()
+  }
+
+
   dataToget(data:any){
      this.parentData = data
      console.log(this.parentData)
