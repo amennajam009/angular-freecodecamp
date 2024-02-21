@@ -1,8 +1,11 @@
 <div class="row mt-5">
   <div class="col-sm-6">
+    <!-- jo b humra projected content hota hai agr humay uska element refrence pakrna hai toh hum @viewChild nai use krsakty -->
+    <!-- phr humy use krna pryga @ContentChild jo k ngAfterContentInIt may initalize hoga or jb tb chlta hai jb humra projected content-->
+    <!-- fully inatilazed hojta hai -->
     <app-card>
-        <h5 class="card-title">Card 1</h5>
-        <button class="btn btn-success">Click Me</button>
+        <h5 class="card-title" #card>Card 1</h5>
+        <button class="btn btn-success" #myBtn>Click Me</button>
     </app-card>
   </div>
 

@@ -1,7 +1,8 @@
-import { Component, ViewChild ,OnInit, OnChanges, SimpleChanges, ViewContainerRef, ViewChildren, QueryList} from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges, SimpleChanges, ViewContainerRef, ViewChildren, QueryList, AfterContentInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChildComponent2Component } from '../child-component2/child-component2.component';
 import { GetDynamicCompComponent } from '../get-dynamic-comp/get-dynamic-comp.component';
+import { ParentComponent } from '../content-projection/parent/parent.component';
 
 @Component({
   selector: 'app-parent-component',
@@ -23,6 +24,8 @@ export class ParentComponentComponent implements OnInit{
 @ViewChild('user' , {read:ViewContainerRef , static:true}) user!:ViewContainerRef
 //now i want to access multiple 
 @ViewChildren(ChildComponent2Component) childComponent!:QueryList<ChildComponent2Component>
+// @ViewChild(ParentComponent , {static:true}) projectedComponent!:ParentComponent;
+
   myValue: any;
 
 ngAfterViewInit(): void {
@@ -47,7 +50,9 @@ ngAfterViewInit(): void {
   //   console.log('do change workss')
   // }
 
- 
+  // ngAfterContentInit(){
+  //   console.log(this.projectedComponent.userManipulation) 
+  // }
 
   myFormModel(){
     this.myForm = this.formBuilder.group({
@@ -68,7 +73,7 @@ ngAfterViewInit(): void {
  
 
   clickMe(){
-    this.ChildComponent.child_title = 'Parent manipulate it'
+   this.ChildComponent.child_title = 'Parent manipulate it'
   }
 
   RunAlertFromChild(){
