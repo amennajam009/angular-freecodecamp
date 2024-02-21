@@ -14,6 +14,8 @@ import { ChildComponentComponent } from './child-component/child-component.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChildComponent2Component } from './child-component2/child-component2.component';
 import { GetDynamicCompComponent } from './get-dynamic-comp/get-dynamic-comp.component';
+import { ParentComponent } from './content-projection/parent/parent.component';
+import { CardComponent } from './content-projection/card/card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { GetDynamicCompComponent } from './get-dynamic-comp/get-dynamic-comp.com
     ParentComponentComponent,
     ChildComponentComponent,
     ChildComponent2Component,
-    GetDynamicCompComponent
+    GetDynamicCompComponent,
+    ParentComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

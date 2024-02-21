@@ -25,7 +25,7 @@
 
 
 <!-- View Child -->
-<h1 class="text-center mt-5">View Child </h1>
+<h1 class="text-center mt-5">@View Child </h1>
 <div class="row mt-5">
   <div class="col-sm-6">
     <div class="card">
@@ -43,13 +43,16 @@
   </div>
 </div>
 
-<ng-template [ngIf]="display">
+<!-- <ng-template [ngIf]="display">
   <h1>Hello There We Are Testing ng-template</h1>
-</ng-template>
+</ng-template> -->
 
 <!-- With the use of template refrence you can even get the dynamic component as well -->
 <!-- <ng-template #user>
   
 </ng-template> -->
 
-<app-get-dynamic-comp></app-get-dynamic-comp>
+
+<!-- content-projection -->
+<h1 class="text-center mt-5">Content-Projection</h1>
+<app-parent></app-parent>
