@@ -13,6 +13,7 @@ import { ParentComponentComponent } from './parent-component/parent-component.co
 import { ChildComponentComponent } from './child-component/child-component.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChildComponent2Component } from './child-component2/child-component2.component';
+import { GetDynamicCompComponent } from './get-dynamic-comp/get-dynamic-comp.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ChildComponent2Component } from './child-component2/child-component2.co
     TableComponent,
     ParentComponentComponent,
     ChildComponentComponent,
-    ChildComponent2Component
+    ChildComponent2Component,
+    GetDynamicCompComponent
   ],
   imports: [
     BrowserModule,
