@@ -1,5 +1,6 @@
+import { InitService } from './shared/init.service';
 import { Module1Module } from './eager-load/module-1/module-1.module';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +17,13 @@ import { ChildComponent2Component } from './child-component2/child-component2.co
 import { GetDynamicCompComponent } from './get-dynamic-comp/get-dynamic-comp.component';
 import { ParentComponent } from './content-projection/parent/parent.component';
 import { CardComponent } from './content-projection/card/card.component';
+import {  HttpClientModule } from '@angular/common/http';
 
+
+//? APP_INITALIZER function that runs before the application starts
+function initDataToLoadsFirst(InitService:InitService){
+return InitService.init()
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,8 +45,18 @@ import { CardComponent } from './content-projection/card/card.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  //?APP_INITIALIZER is used to loads the data or service before application starts
+  // providers: [
+  //   {
+  //     provide:APP_INITIALIZER,
+  //     useFactory:initDataToLoadsFirst,
+  //     deps : [InitService],
+  //     multi:true
+  //   }
+  // ],
+
   bootstrap: [AppComponent]
 })
 //yeh humra root module hota hai 

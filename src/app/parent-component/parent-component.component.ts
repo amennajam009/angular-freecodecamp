@@ -3,11 +3,13 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ChildComponent2Component } from '../child-component2/child-component2.component';
 import { GetDynamicCompComponent } from '../get-dynamic-comp/get-dynamic-comp.component';
 import { ParentComponent } from '../content-projection/parent/parent.component';
+import { MyServiceService } from '../shared/my-service.service';
 
 @Component({
   selector: 'app-parent-component',
   templateUrl: './parent-component.component.html',
-  styleUrls: ['./parent-component.component.scss']
+  styleUrls: ['./parent-component.component.scss'],
+  providers:[MyServiceService]
 })
 export class ParentComponentComponent implements OnInit{
   myForm:FormGroup | any;
@@ -36,7 +38,8 @@ ngAfterViewInit(): void {
 
 
 
-  constructor(private readonly formBuilder:FormBuilder){
+  constructor(private readonly formBuilder:FormBuilder,
+              private readonly service:MyServiceService){
     this.myFormModel()
   }
   ngOnInit(){

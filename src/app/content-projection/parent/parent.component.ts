@@ -1,16 +1,18 @@
-import { AfterContentInit, Component, ContentChild, ElementRef } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, ElementRef,Self } from '@angular/core';
+import { MyServiceService } from 'src/app/shared/my-service.service';
 
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
-  styleUrls: ['./parent.component.scss']
+  styleUrls: ['./parent.component.scss'],
+  providers:[MyServiceService]
 })
 export class ParentComponent implements AfterContentInit{
   @ContentChild('card') userManipulation!: ElementRef<any>;
 
-// constructor(){
-//   console.log(this.userManipulation)
-// }
+constructor(private myservice:MyServiceService){
+  console.log(this.userManipulation)
+}
 
 ngAfterContentInit(){
  console.log(this.userManipulation)
