@@ -11,6 +11,10 @@
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Education" aria-label="Recipient's username"  formControlName="education" aria-describedby="basic-addon2">
           </div>
+          <!-- {{myForm.get('first_name').errors?.invalidEmail? 'Email cannot contain test' : 'valid'}} -->
+          <div *ngIf="myForm.get('first_name').errors?.invalidEmail">
+            Email cannot contain 'test'
+          </div>
          <button class="btn btn-success w-100" type="submit">Send Data To Child </button>
         </form>
     </div>

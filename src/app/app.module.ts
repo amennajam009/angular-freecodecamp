@@ -18,6 +18,13 @@ import { GetDynamicCompComponent } from './get-dynamic-comp/get-dynamic-comp.com
 import { ParentComponent } from './content-projection/parent/parent.component';
 import { CardComponent } from './content-projection/card/card.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { ErrorDirective } from './directives/error.directive';
 
 
 //? APP_INITALIZER function that runs before the application starts
@@ -35,7 +42,9 @@ return InitService.init()
     ChildComponent2Component,
     GetDynamicCompComponent,
     ParentComponent,
-    CardComponent
+    CardComponent,
+    SidenavComponent,
+    ErrorDirective
   ],
   imports: [
     BrowserModule,
@@ -45,7 +54,12 @@ return InitService.init()
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   //?APP_INITIALIZER is used to loads the data or service before application starts
   // providers: [
