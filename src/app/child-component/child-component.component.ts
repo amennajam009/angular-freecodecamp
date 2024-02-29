@@ -17,6 +17,7 @@ constructor(private readonly formBuilder:FormBuilder){
 }
 
 ngOnChanges(changes: SimpleChanges): void {
+  console.log(changes)
 this.dataToStore.push(changes["dataToPass"].currentValue)
 this.sendDataBackToParent.emit(this.dataToStore)
 //  this.dataToPass = changes['dataToPass'].currentValue.toUpperCase()

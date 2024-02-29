@@ -25,6 +25,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ErrorDirective } from './directives/error.directive';
+import { MainTableComponent } from './main-table/main-table.component';
+import { TableTwoComponent } from './table-two/table-two.component';
+import { TableThreeComponent } from './table-three/table-three.component';
 
 
 //? APP_INITALIZER function that runs before the application starts
@@ -44,7 +47,10 @@ return InitService.init()
     ParentComponent,
     CardComponent,
     SidenavComponent,
-    ErrorDirective
+    ErrorDirective,
+    MainTableComponent,
+    TableTwoComponent,
+    TableThreeComponent
   ],
   imports: [
     BrowserModule,

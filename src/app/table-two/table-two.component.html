@@ -1,0 +1,38 @@
+<app-main-table [tableData]="otherTableData"></app-main-table>
+
+
+
+
+
+
+
+
+<h1 class="text-center mt-5">Nested FormGroup </h1>
+
+<form [formGroup]="myForm" (ngSubmit)="SubmitForm()">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="First Name" aria-label="Recipient's username"  formControlName="first_name" aria-describedby="basic-addon2">   
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Last Name" aria-label="Recipient's username"  formControlName="last_name" aria-describedby="basic-addon2">
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Education" aria-label="Recipient's username"  formControlName="education" aria-describedby="basic-addon2">
+      </div>
+      <!-- {{myForm.get('first_name').errors?.invalidEmail? 'Email cannot contain test' : 'valid'}} -->
+      <div *ngIf="myForm.get('first_name').errors?.invalidEmail">
+        Email cannot contain 'test'
+      </div>
+      <div formGroupName="studentInfo">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Student Name" aria-label="Recipient's username"  formControlName="studentName" aria-describedby="basic-addon2">   
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Student Age" aria-label="Recipient's username"  formControlName="studentAge" aria-describedby="basic-addon2">
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Student Address" aria-label="Recipient's username"  formControlName="studentAddress" aria-describedby="basic-addon2">
+          </div>
+      </div>
+     <button class="btn btn-success w-100" type="submit">Send Data To Child </button>
+    </form>

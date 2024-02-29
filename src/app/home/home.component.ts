@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Rooms, RoomsDetails } from '../rooms';
 import { findIndex } from 'rxjs';
 
@@ -7,10 +7,12 @@ import { findIndex } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit{
+  @ViewChild('testViewChild') testingView!:ElementRef
   //Interpollution means to bind data which means the connection from ts to html file
   course = 'Angular-freecodecamp';
   @Input() dataToPass:any
+
   //property binding
   courseReview = 'Amazing course of the Year';
   //property binding
@@ -56,6 +58,9 @@ roomsDetails:RoomsDetails [] = [{
 ]
   constructor(){
   this.sendFunction.emit('experimentFunction')
+  }
+  ngAfterViewInit(): void {
+    this.testingView.nativeElement.style.color='red'
   }
 
   ngOnInit(): void {

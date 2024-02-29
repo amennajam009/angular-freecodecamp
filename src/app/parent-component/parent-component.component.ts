@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, OnChanges, SimpleChanges, ViewContainerRef, ViewChildren, QueryList, AfterContentInit, ElementRef } from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges, SimpleChanges, ViewContainerRef, ViewChildren, QueryList, AfterContentInit, ElementRef, AfterViewInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, ValidationErrors, Validators } from '@angular/forms';
 import { ChildComponent2Component } from '../child-component2/child-component2.component';
 import { GetDynamicCompComponent } from '../get-dynamic-comp/get-dynamic-comp.component';
@@ -35,13 +35,12 @@ export class ParentComponentComponent implements OnInit{
 @ViewChildren(ChildComponent2Component) childComponent!:QueryList<ChildComponent2Component>
 // @ViewChild(ParentComponent , {static:true}) projectedComponent!:ParentComponent;
 
+// @ViewChild('viewExa') viewExa!:ElementRef
+
+
 myValue: any;
 nameOfParam:any
-ngAfterViewInit(): void {
- console.log(this.ChildComponent.child_title) 
- console.log(this.childComponent)
-  
-}
+
 
 constructor(private readonly formBuilder:FormBuilder,
               private readonly service:MyServiceService,
@@ -49,14 +48,24 @@ constructor(private readonly formBuilder:FormBuilder,
     this.myFormModel()
   }
   ngOnInit(){
+    // this.viewExa.nativeElement.style.color = 'red'
     // console.log(this.ChildComponent.child_title);
     // const getComponent = this.user.createComponent(GetDynamicCompComponent)
     console.log('&&&&&&&&&&&&&'),
     
     this.nameOfParam = this.activeRoute.snapshot.paramMap.get('name');
     console.log(this.nameOfParam)
-
   }
+
+//   ngAfterViewInit(): void {
+//     this.viewExa.nativeElement.style.color='red'
+// }
+
+  // ngAfterViewInit(): void {
+  //   this.viewExa.nativeElement.style.color = 'red'
+  // //  console.log(this.ChildComponent.child_title) 
+  // //  console.log(this.childComponent)
+  // }
 
 
   // ngDoCheck(){
