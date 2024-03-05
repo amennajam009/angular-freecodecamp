@@ -47,11 +47,11 @@
         <div *ngFor="let item of items.controls; let i = index">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="FormArray" aria-label="Recipient's username"  [formControlName]="i" aria-describedby="basic-addon2">
+            <button class="btn btn-danger" (click)="removeItem(i)">Remove Control</button>
           </div>
-          <!-- <input type="text" > -->
         </div>
       </div> 
        <button type="button" class="btn btn-info" (click)="addItem()">Add Field</button> 
-
-     <button class="btn btn-success w-100" type="submit">Send Data To Child </button>
+<!-- [disabled]="myForm.invalid"     if if form is invalid then make it disabled-->
+     <button class="btn btn-success w-100"  type="submit">Send Data To Child </button>
     </form>

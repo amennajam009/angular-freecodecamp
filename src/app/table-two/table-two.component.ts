@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   templateUrl: './table-two.component.html',
   styleUrls: ['./table-two.component.scss']
 })
-export class TableTwoComponent {
+export class TableTwoComponent implements OnInit{
   myForm:FormGroup | any;
   // items!: FormArray<any>;
    anyCondition : boolean = true
@@ -14,6 +14,10 @@ export class TableTwoComponent {
   constructor(private readonly formBuilder:FormBuilder){
   this.myFormModel()
   // this.addItem()
+  }
+  ngOnInit(): void {
+    this.UsingPatchValue()
+  // this.UsingSetValue()
   }
 
   myFormModel(){
@@ -36,14 +40,40 @@ export class TableTwoComponent {
     }
   }
 
-
+  
   get items() {
     return this.myForm.get('items') as FormArray;
   }
 
+  //Adding Items
+
   addItem() {
     this.items.push(this.formBuilder.control(''));
   }
+
+  //Removing Items
+  removeItem(index:number){
+   this.items.removeAt(index)
+  }
+
+
+  //If we use setValue so it require to get all the value of all formControls
+//  UsingSetValue(){
+//   this.myForm.setValue({
+//     first_name:'amen',
+//     last_name:'najam',
+//     education:'ddd'
+//   })
+//  }
+
+
+//But if we Use patchValue so it allow us to give values of few of controls
+UsingPatchValue(){
+  this.myForm.patchValue({
+    first_name:'amen',
+    last_name:'testing'
+  })
+}
 
   SubmitForm(){
     const formValues = this.myForm.value;
