@@ -34,5 +34,24 @@
             <input type="text" class="form-control" placeholder="Student Address" aria-label="Recipient's username"  formControlName="studentAddress" aria-describedby="basic-addon2">
           </div>
       </div>
+      <div *ngIf="anyCondition === true">
+        <div class="input-group mb-3" >
+          <input type="text" class="form-control" placeholder="additionalField1" aria-label="Recipient's username"  formControlName="additionalField1" aria-describedby="basic-addon2">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="additionalField2" aria-label="Recipient's username"  formControlName="additionalField2" aria-describedby="basic-addon2">
+        </div>
+      </div>
+      <h1 class="text-center">Form Array Data</h1>
+    <div formArrayName="items">
+        <div *ngFor="let item of items.controls; let i = index">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="FormArray" aria-label="Recipient's username"  [formControlName]="i" aria-describedby="basic-addon2">
+          </div>
+          <!-- <input type="text" > -->
+        </div>
+      </div> 
+       <button type="button" class="btn btn-info" (click)="addItem()">Add Field</button> 
+
      <button class="btn btn-success w-100" type="submit">Send Data To Child </button>
     </form>
