@@ -7,17 +7,12 @@ import { Injectable } from '@angular/core';
 export class MyServiceService {
 private numbers : number = 1
 
-
-
-
   constructor() {
    }
  
    increment(){
    return this.numbers++
    }
-
-
 
    decrement(){
     return this.numbers--;
