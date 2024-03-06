@@ -55,3 +55,12 @@
 <!-- [disabled]="myForm.invalid"     if if form is invalid then make it disabled-->
      <button class="btn btn-success w-100"  type="submit">Send Data To Child </button>
     </form>
+
+
+<h1>{{MyNumber}}</h1>
+
+    <div class="container ">
+      <button class="btn btn-success" (click)="AddData()">Add Numbers</button>
+      <button class="btn btn-danger" (click)="MinusData()">Minus numbers</button>
+      <h1>{{MyNumber}}</h1>
+    </div>

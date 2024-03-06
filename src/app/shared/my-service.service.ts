@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 
 export class MyServiceService {
+private numbers : number = 1
+
+
+
 
   constructor() {
-    console.log('providedIn service worksss')
    }
  
+   increment(){
+   return this.numbers++
+   }
+
+
+
+   decrement(){
+    return this.numbers--;
+   }
+
 
 }

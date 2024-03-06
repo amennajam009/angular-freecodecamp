@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MyServiceService } from '../shared/my-service.service';
 
 @Component({
   selector: 'app-table-two',
@@ -10,14 +11,17 @@ export class TableTwoComponent implements OnInit{
   myForm:FormGroup | any;
   // items!: FormArray<any>;
    anyCondition : boolean = true
+   MyNumber: any
 
-  constructor(private readonly formBuilder:FormBuilder){
+  constructor(private readonly formBuilder:FormBuilder,
+            private readonly ServiceService:MyServiceService){
   this.myFormModel()
   // this.addItem()
   }
   ngOnInit(): void {
-    this.UsingPatchValue()
+    // this.UsingPatchValue()
   // this.UsingSetValue()
+  // console.log(this.ServiceService.getNumbers())
   }
 
   myFormModel(){
@@ -56,7 +60,17 @@ export class TableTwoComponent implements OnInit{
    this.items.removeAt(index)
   }
 
+  AddData(){
+   this.MyNumber = this.ServiceService.increment()
+  }
 
+  MinusData(){
+   this.MyNumber = this.ServiceService.decrement()
+  }
+
+  // getNumbers(){
+  //   this.ServiceService.getNumbers()
+  // }
   //If we use setValue so it require to get all the value of all formControls
 //  UsingSetValue(){
 //   this.myForm.setValue({
@@ -68,12 +82,13 @@ export class TableTwoComponent implements OnInit{
 
 
 //But if we Use patchValue so it allow us to give values of few of controls
-UsingPatchValue(){
-  this.myForm.patchValue({
-    first_name:'amen',
-    last_name:'testing'
-  })
-}
+// UsingPatchValue(){
+//   this.myForm.patchValue({
+//     first_name:'amen',
+//     last_name:'testing'
+//   })
+// }
+
 
   SubmitForm(){
     const formValues = this.myForm.value;
