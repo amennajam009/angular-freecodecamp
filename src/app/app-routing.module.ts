@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: 'practice',component:ParentComponentComponent},
   {path: 'main-table',component:MainTableComponent},
   {path: 'table-two', component:TableTwoComponent},
-  {path: 'table-3' , component:TableThreeComponent}
+  {path: 'table-3' , component:TableThreeComponent},
+  { path: 'module2', loadChildren: () => import('./module2/module2.module').then(m => m.Module2Module) }
 ];
 
 @NgModule({
